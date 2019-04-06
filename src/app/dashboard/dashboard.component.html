@@ -1,0 +1,39 @@
+<!-- Dashboard header -->
+<section class="navbar-dashboard-area">
+    <nav class="navbar navbar-default lightHeader navbar-dashboard" role="navigation">
+      <div class="container">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-dash">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <!-- Collect the nav values from component -->
+        <div class="collapse navbar-collapse navbar-dash">
+          <ul class="nav nav-tabs side_nav" role="tablist">
+              <li *ngFor="let table of tables; let first = first;" [ngClass]="{firstItem: first}" role="presentation" class="accounts_li" [class.active]="selectedtable===table">
+                <a (click)="selectedtable = table" aria-controls="one" role="tab" data-toggle="tab">{{table}}</a>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</section>
+
+<!-- Dashboard Body -->
+<div class="tab-content">
+    <div *ngIf="selectedtable === tables[0]" role="tabpanel" class="tab-pane active" id="one">Users list</div>
+    <div *ngIf="selectedtable === tables[1]" role="tabpanel" class="tab-pane active" id="two">Document List</div>
+    <div *ngIf="selectedtable === tables[2]" role="tabpanel" class="tab-pane active" id="two"><app-list-department></app-list-department></div>
+    <div *ngIf="selectedtable === tables[3]" role="tabpanel" class="tab-pane active" id="two"><app-list-course></app-list-course></div>
+    <div *ngIf="selectedtable === tables[4]" role="tabpanel" class="tab-pane active" id="two"><app-list-matters></app-list-matters></div>
+    <div *ngIf="selectedtable === tables[5]" role="tabpanel" class="tab-pane active" id="two"><app-list-university></app-list-university></div>
+    <div *ngIf="selectedtable === tables[7]" role="tabpanel" class="tab-pane active" id="two">Favoris</div>
+    <div *ngIf="selectedtable === tables[8]" role="tabpanel" class="tab-pane active" id="two">Notification</div>
+    <div *ngIf="selectedtable === tables[9]" role="tabpanel" class="tab-pane active" id="two">Commentaires</div>
+</div>
